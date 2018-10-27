@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 1200px;
+    margin:  0 auto;
+}
+
+.title {
+    color: #000000;
+    text-align: center;
+}
+
+.section {
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.select {
+    margin-top: 20px;
+}
+
+.label {
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 10px;
+}
