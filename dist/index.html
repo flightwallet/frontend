@@ -13,9 +13,17 @@
         <div class="section">
             <h1 class="title">Flight Wallet</h1>
             <label for="title" class="label">
+                Send address
                 <input type="text" id="title" title="number" class="input" >
             </label>
-            <h2 class="select">BTC</h2>
+            <label for="numberInput" class="label">
+            Enter amount
+                <input type="number" id="numberInput" class="input" >
+            </label>
+            <select title="select" class="select">
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+            </select>
             <button id="generate" class="button">Generate</button>
             <canvas id="canvas" width="400px" height="400px"></canvas>
         </div>

@@ -7,6 +7,7 @@ import { newQr } from './qrcode'
 
 
 const input   = document.getElementById('title')
+const number  = document.getElementById('numberInput')
 const btn = document.getElementById('generate')
 
 
@@ -17,7 +18,8 @@ const generate = () => {
   const scanner = init()
 
   scanner.addListener('scan', async result => {
-    const creating = await send(result, 0.01)
+    alert(result)
+    const creating = await send(result, number.value)
 
     if (creating) {
       scanner.stop()
@@ -96,23 +98,23 @@ const checkTx = (txRaw) => {
 
   const signTx = tx.build()
 
-  newQr(JSON.stringify(signTx.toHex()), {
+  // sendQrSignTx(signTx.toHex())
+  broadcastTx(signTx.toHex())
+    .then(res => alert(res.data.txid))
+}
+
+
+const sendQrSignTx = (tx) => {
+  newQr(JSON.stringify(tx), {
     scale: 10,
     width: 650,
     margin: 1,
   })
 
-  sendQrSignTx()
-  // broadcastTx()
-  //   .then(res => alert(res.data.txid))
-}
-
-
-const sendQrSignTx = () => {
   const scanner = init()
 
   scanner.addListener('scan', async result => {
-    console.log('sacn', result)
+    console.log('scan', result)
 
     broadcastTx(result)
       .then(res => alert(res.data.txid))
