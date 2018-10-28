@@ -4,8 +4,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 const developmentConfig = {
+  mode: 'development',
   devServer: {
-    stats: 'errors-only',
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   devtool: 'eval', // babel sourcemap setting, this is best for development but has no source maps - see https://webpack.github.io/docs/configuration.html#devtool alternative cheap-module-eval-source-map: has proper source maps in development
   entry: [
@@ -14,7 +17,6 @@ const developmentConfig = {
   ],
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
   ]
 };
 

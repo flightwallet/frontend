@@ -4,27 +4,25 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Simple Babel Webpack Template</title>
-    <link href='style.css' rel='stylesheet' title='Default Style'>
     <link href='favicon.png' rel='shortcut icon'>
+    <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
     <section class="wrapper">
-        <h1 class="title">Flight Wallet</h1>
         <div class="section">
-            <select value="ETH" title="select" class="select">
-                <option value="ETH">ETH</option>
-                <option value="BTC">BTC</option>
-            </select>
+            <h1 class="title">Flight Wallet</h1>
             <label for="title" class="label">
-            <span>Enter amount</span>
-                <input type="number" id="title" title="number" class="input" >
+                <input type="text" id="title" title="number" class="input" >
             </label>
-            <button class="button">Generate</button>
+            <h2 class="select">BTC</h2>
+            <button id="generate" class="button">Generate</button>
             <canvas id="canvas" width="400px" height="400px"></canvas>
         </div>
+        <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
     </section>
-    <script src='built/js/application.js'></script>
+
+    <script src="main.js"></script>
   </body>
 
 </html>
