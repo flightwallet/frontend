@@ -19,9 +19,10 @@
     "npm": ">= 3.3.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
     "babel": "^6.0.15",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^6.4.1",
+    "babel-cli": "^7.0.0-beta.3",
+    "babel-loader": "^7.0.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -29,6 +30,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "bignumber.js": "^7.2.1",
@@ -40,6 +42,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.1.0",
     "axios": "^0.18.0",
     "bitcoin-live-transactions": "git+https://github.com/guerrerocarlos/bitcoin-live-transactions.git",
     "bitcoinjs-lib": "^3.3.2",

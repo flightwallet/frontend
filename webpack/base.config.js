@@ -6,13 +6,13 @@ module.exports = {
     path.resolve(__dirname, '../src/index.js') // arguments can be seen as being passed to `cd` and chained from left to right; see https://nodejs.org/api/path.html#path_path_resolve_from_to
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       }
-    ]
+    ],
   },
 
   node: {
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['*', '.js', '.jsx', '.json']
   },
 
   stats: {
