@@ -1,8 +1,8 @@
 {
-  "name": "simple-babel-webpack-template",
+  "name": "flight-wallet-kassa",
   "version": "1.0.0",
   "description": "",
-  "main": "src/application.js",
+  "main": "src/index.js",
   "scripts": {
     "clean": "rimraf dist/built",
     "build": "npm run clean && webpack --config webpack/production.config.js",
