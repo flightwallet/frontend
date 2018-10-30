@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 1200px;
+    margin:  0 auto;
+    justify-content: space-around;
+    display: flex;
+}
+
+.title {
+    color: #000000;
+    text-align: center;
+}
+
+.section {
+    width: 345px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.select {
+    margin-top: 20px;
+    height: 40px;
+}
+
+.label {
+    margin-top: 30px;
+}
+
+.input {
+    height: 25px;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    height: 40px;
+    width: 200px;
+}
+
+#canvas {
+    margin-top: 20px;
+}

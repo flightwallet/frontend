@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head lang='en'>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Simple Babel Webpack Template</title>
+    <link href='favicon.png' rel='shortcut icon'>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <section class="wrapper">
+        <div class="section">
+            <h1 class="title">Flight Wallet</h1>
+            <label for="title" class="label">
+                Send address
+                <input type="text" id="title" title="number" class="input" >
+            </label>
+            <label for="numberInput" class="label">
+            Enter amount
+                <input type="number" id="numberInput" class="input" >
+            </label>
+            <select title="select" class="select">
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+            </select>
+            <button id="generate" class="button">Generate</button>
+            <canvas id="canvas" width="400px" height="400px"></canvas>
+        </div>
+        <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+
+</html>
