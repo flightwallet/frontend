@@ -17,9 +17,8 @@ const generate = () => {
 
   const scanner = init()
 
-  scanner.addListener('scan', async result => {
-    alert(result)
-    const creating = await send(result, number.value)
+  scanner.addListener('scan', async address => {
+    const creating = await send(address, number.value)
 
     if (creating) {
       scanner.stop()
@@ -36,7 +35,6 @@ const broadcastTx = (txRaw) => {
 const fetchUnspents = async (address) => {
   return axios.get(`https://test-insight.bitpay.com/api/addr/${address}/utxo`)
     .then(result => {
-      console.log('data', result.data)
       return result.data
     })
 }
@@ -53,8 +51,6 @@ const send = async (from, amount) => {
   unspents.forEach(({ txid, vout }) => tx.addInput(txid, vout, 0xfffffffe))
   tx.addOutput(input.value, fundValue)
   tx.addOutput(from, skipValue)
-
-  console.log('tx send', tx)
 
   const txRaw = tx.buildIncomplete()
 
@@ -73,7 +69,7 @@ const createQrSignTx = (txRaw) => {
   const scanner = init()
 
   scanner.addListener('scan', async result => {
-    const creating = await checkTx(result)
+    const creating = await broadcastTx(result)
 
     if (creating) {
       scanner.stop()
@@ -81,13 +77,11 @@ const createQrSignTx = (txRaw) => {
   })
 }
 
-console.log('bitcoin', bitcoin)
-
 const checkTx = (txRaw) => {
   const tx = bitcoin.TransactionBuilder.fromTransaction(bitcoin.Transaction.fromHex(txRaw), bitcoin.networks.testnet)
   console.log('tx before', tx)
 
-  const account = new bitcoin.ECPair.fromWIF('cReuao13Vz9keT5VB8gQ1nP79eCWoYEatAqkyfjig3Xsx4vBXSGc',  bitcoin.networks.testnet)
+  const account = new bitcoin.ECPair.fromWIF('',  bitcoin.networks.testnet)
   console.log('keyPair', account)
 
   tx.inputs.forEach((input, index) => {
