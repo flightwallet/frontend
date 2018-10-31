@@ -49,7 +49,8 @@ const send = async (from, amount) => {
   const skipValue     = totalUnspent - fundValue - feeValue
 
   if (totalUnspent < fundValue + feeValue) {
-    throw new Error(`Insufficient funds: totalUnspent < fundValue + feeValue: ${totalUnspent} < ${fundValue} + ${feeValue}`)
+    alert(`Insufficient funds: totalUnspent < fundValue + feeValue: ${totalUnspent} < ${fundValue} + ${feeValue}`)
+    return
   }
 
   unspents.forEach(({ txid, vout }) => tx.addInput(txid, vout, 0xfffffffe))
