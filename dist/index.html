@@ -11,20 +11,25 @@
   <body>
     <section class="wrapper">
         <div class="section">
-            <h1 class="title">Flight Wallet</h1>
+            <h1 class="title">flight.wallet Kassa</h1>
+            <div class="description">
+                This app allows you to transfer cryptocurrency securely, using our <a href="https://flightwallet.org">flight.wallet</a> app.
+                <br>
+                For now we support only Bitcoin.
+            </div>
             <label for="title" class="label">
-                Send address
+                Recipient address
                 <input type="text" id="title" title="number" class="input" >
             </label>
             <label for="numberInput" class="label">
-            Enter amount
+                Amount of tokens to send
                 <input type="number" id="numberInput" class="input" >
             </label>
             <select title="select" class="select">
                 <option value="BTC">BTC</option>
                 <option value="ETH">ETH</option>
             </select>
-            <button id="generate" class="button">Generate</button>
+            <button id="generate" class="button">Generate Invoice</button>
             <canvas id="canvas" width="400px" height="400px"></canvas>
         </div>
         <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
