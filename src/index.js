@@ -18,6 +18,8 @@ const generate = () => {
   const scanner = init()
 
   scanner.addListener('scan', async address => {
+    alert(`https://live.blockcypher.com/btc-testnet/address/${address}`)
+
     const creating = await send(address, number.value)
 
     if (creating) {
