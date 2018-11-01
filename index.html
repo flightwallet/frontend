@@ -11,32 +11,41 @@
   <body>
     <section class="wrapper">
         <div class="section">
-            <h1 class="title">flight.wallet Kassa</h1>
-            <div class="description">
+            <h1 class="title">flight.wallet kassa</h1>
+            <!-- <div class="description">
                 This app allows you to transfer cryptocurrency securely, using our <a href="https://flightwallet.org">flight.wallet</a> app.
                 <br>
                 For now we support only Bitcoin.
-            </div>
-            <label for="title" class="label">
-                Recipient address
-                <input type="text" id="title" title="number" class="input" >
-            </label>
+            </div>  -->
+            <br>
+            <h2>I want to transfer</h2>
+            
             <label for="numberInput" class="label">
-                Amount of tokens to send
-                <input type="number" id="numberInput" class="input" >
+                <input type="number" id="numberInput" class="input" placeholder="amount">
+                <select title="select" class="select">
+                    <option value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                </select>
             </label>
-            <select title="select" class="select">
-                <option value="BTC">BTC</option>
-                <option value="ETH">ETH</option>
-            </select>
+
+            <br>
+            <h2>to</h2>
+
+            <label for="title" class="label">
+                <input type="text" id="title" title="number" class="input" placeholder="address">
+            </label>
+            
+
             <button id="generate" class="button">Generate Invoice</button>
+
+            <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
             <canvas id="canvas" width="400px" height="400px"></canvas>
         </div>
-        <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
     </section>
 
-    <script src="main.js"></script>
+    
 
+    <script src="main.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
@@ -67,7 +76,6 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/50897126" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-
 
   </body>
 
