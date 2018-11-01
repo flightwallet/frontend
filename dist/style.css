@@ -4,10 +4,23 @@
 }
 
 .wrapper {
-    width: 1200px;
+    /* width: 1200px; */
     margin:  0 auto;
     justify-content: space-around;
     display: flex;
+    /* background: #7935352d; */
+}
+
+.section {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* border-radius: 20px; */
+    /* background: green; */
 }
 
 .title {
@@ -16,37 +29,33 @@
     font-size: 60px;
 }
 
+h2 {
+    font-size: 30px;
+}
+
 .description {
     color: #000000;
     text-align: center;
 }
 
-.section {
-    width: 345px;
-    margin: 0 auto;
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 20px;
-}
+
 
 .select {
-    margin-top: 20px;
-    height: 40px;
+    /* margin-top: 20px; */
+    height: 30px;
 }
 
 .label {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .input {
     height: 25px;
-    border-radius: 5px;
+    text-align:center;
 }
 
 .button {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px 25px;
     height: 40px;
     width: 200px;
