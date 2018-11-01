@@ -75,7 +75,7 @@ const createQrSignTx = (txRaw) => {
 
   const scanner = init()
 
-  confirm('Please remove the phone from the camera')
+  // confirm('Please remove the phone from the camera')
 
   scanner.addListener('scan', async result => {
     const creating = await broadcastTx(result)
