@@ -32,7 +32,6 @@ const broadcastTx = (txRaw) => {
   return axios.post(`https://test-insight.bitpay.com/api/tx/send`, {
     rawtx: txRaw,
   })
-  .then(res => alert(res)
 }
 
 const fetchUnspents = async (address) => {
@@ -104,7 +103,7 @@ const checkTx = (txRaw) => {
 
   // sendQrSignTx(signTx.toHex())
   broadcastTx(signTx.toHex())
-    .then(res => alert(res.data.txid))
+    .then(res => alert(`https://test-insight.bitpay.com/tx/${res.data.txid}`))
 }
 
 
@@ -121,7 +120,7 @@ const sendQrSignTx = (tx) => {
     console.log('scan', result)
 
     broadcastTx(result)
-      .then(res => alert(res.data.txid))
+      .then(res => alert(`https://test-insight.bitpay.com/tx/${res.data.txid}`))
   })
 }
 
