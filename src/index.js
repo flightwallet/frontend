@@ -32,6 +32,7 @@ const broadcastTx = (txRaw) => {
   return axios.post(`https://test-insight.bitpay.com/api/tx/send`, {
     rawtx: txRaw,
   })
+  .then(res => alert(res)
 }
 
 const fetchUnspents = async (address) => {
