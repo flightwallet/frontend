@@ -1,6 +1,7 @@
 import axios from 'axios'
 import BigNumber from 'bignumber.js'
 import bitcoin from 'bitcoinjs-lib'
+import web3, { buildTx, publishTx } from './eth'
 
 import { init } from './webcam'
 import { newQr } from './qrcode'
@@ -22,6 +23,14 @@ const toAddress  = document.getElementById('toAddress')
 const confirmBtn   = document.getElementById('confirmBtn')
 const reloadBtn   = document.getElementById('reloadBtn')
 const txHex  = document.getElementById('txHex')
+
+window.onload = () => {
+  window.eth = {
+    web3,
+    buildTx,
+    publishTx,
+  }
+}
 
 start.onclick = () => generate()
 const generate = async () => {
@@ -120,6 +129,3 @@ const createQrSignTx = async (txRaw) => {
     }
   })
 }
-
-
-
