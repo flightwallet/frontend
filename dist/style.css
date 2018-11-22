@@ -4,23 +4,82 @@
 }
 
 .wrapper {
-    /* width: 1200px; */
+    width: 1200px;
     margin:  0 auto;
     justify-content: space-around;
     display: flex;
-    /* background: #7935352d; */
+}
+
+
+
+#qrScanner {
+    border-radius: 20px;
+
 }
 
 .section {
     width: 600px;
-    margin: 0 auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    /* border-radius: 20px; */
-    /* background: green; */
+    border-radius: 20px;
+    position: relative;
+    background: #c9c9c9;
+    align-items: center;
+}
+
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.block {
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px 35px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    background: #ffffff;
+    text-align: center;
+}
+
+#step-2, #step-3, #step-4, #step-5, #reloadBtn {
+    display: none;
+}
+
+#error {
+    margin-top: 5px;
+    color: red;
+    display: none;
+}
+
+.field {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.buttonRow {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.selectBtn {
+    width: 48%;
+    padding: 10px 25px;
+}
+
+.confirmBtn {
+    margin-top: 10px;
+    padding: 10px 25px;
+}
+
+.generate_btn {
+    margin-top: 20px;
+    padding: 10px 25px;
 }
 
 .title {
@@ -41,7 +100,7 @@ h2 {
 
 
 .select {
-    /* margin-top: 20px; */
+    margin-top: 20px;
     height: 30px;
 }
 

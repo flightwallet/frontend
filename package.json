@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist/built",
     "build": "npm run clean && webpack --config webpack/production.config.js",
-    "dev": "webpack-dev-server --port 3000 --progress --colors --hot --content-base dist --mode=development --config webpack/development.config.js"
+    "dev": "webpack-dev-server --port 9000 --progress --colors --hot --content-base dist --mode=development --config webpack/development.config.js"
   },
   "author": "Paul Kögel",
   "repository": {

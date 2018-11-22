@@ -11,42 +11,86 @@
   <body>
     <section class="wrapper">
         <div class="section">
-            <h1 class="title">flight.wallet kassa</h1>
-            <!-- <div class="description">
-                This app allows you to transfer cryptocurrency securely, using our <a href="https://flightwallet.org">flight.wallet</a> app.
-                <br>
-                For now we support only Bitcoin.
-            </div>  -->
-            <br>
-            <h2>I want to transfer</h2>
-            
-            <label for="numberInput" class="label">
+            <h1 class="header">Flight.wallet kassa</h1>
+            <div class="block" id="step-1">
+                <b>Enter billing information</b>
+
+                <div class="buttonRow">
+                    <button
+                        class="selectBtn"
+                        id="btcButton"
+                        onclick="setSelectCurrency('BTC')"
+                    >
+                        BTC
+                    </button>
+                    <button
+                        class="selectBtn"
+                        id="ethButton"
+                        onclick="setSelectCurrency('ETH')"
+                    >
+                        ETH
+                    </button>
+                </div>
+
+                <span id="error">ETH comming soon, please select BTC</span>
+
+                <label class="field">Please enter amount</label>
                 <input type="number" id="numberInput" class="input" placeholder="amount">
-                <select title="select" class="select">
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                </select>
-            </label>
 
-            <br>
-            <h2>to</h2>
-
-            <label for="title" class="label">
+                <label class="field">Please enter address</label>
                 <input type="text" id="title" title="number" class="input" placeholder="address">
-            </label>
-            
+                <button class="generate_btn" id="generateBtn">Generate invoice</button>
+            </div>
 
-            <button id="generate" class="button">Generate Invoice</button>
+            <div class="block" id="step-2">
+                <b>Scan sender address</b>
+                <video id="qrScanner" muted autoplay playsinline width="100%" height="250px"></video>
+            </div>
 
-            <video id="qrScanner"  muted autoplay playsinline width="400px" height="400px"></video>
-            <canvas id="canvas" width="400px" height="400px"></canvas>
+            <div class="block" id="step-3">
+                <span>To: <a href="" target="_blank" id="toAddress"></a></span>
+                <span>From: <a href="" target="_blank" id="fromAddress"></a></span>
+                <span>Amount: <b id="enterAmount"></b></span>
+                <button class="confirmBtn" id="confirmBtn">Confirm</button>
+            </div>
+
+            <div class="block" id="step-4">
+                <p>Read and sign this transaction</p>
+                <canvas id="canvas" width="100%" height="400px"></canvas>
+            </div>
+
+            <div class="block" id="step-5">
+                <b>See QR with sign transaction</b>
+                <video id="qrScanner1" muted autoplay playsinline width="100%" height="250px"></video>
+                <a href="" target="_blank" id="txHex"></a>
+                <button onclick="window.location.reload()" class="confirmBtn" id="reloadBtn" >Again</button>
+            </div>
+
         </div>
+
     </section>
+    <script>
+        const error = document.getElementById('error')
+        const btcButton = document.getElementById('btcButton')
+        const generateBtn = document.getElementById('generateBtn')
 
-    
+        let selectCurrency
 
+        const setSelectCurrency = (value) => {
+            selectCurrency = value
+
+            if (selectCurrency === 'ETH') {
+                error.style.display = 'block'
+                btcButton.style.background = '#c9c9c9'
+                generateBtn.disabled = true
+            } else {
+              btcButton.style.background = 'green'
+              error.style.display = 'none'
+              generateBtn.disabled = false
+            }
+        }
+    </script>
     <script src="main.js"></script>
-
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function (d, w, c) {
