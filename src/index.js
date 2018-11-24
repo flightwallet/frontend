@@ -61,13 +61,13 @@ const generate = async () => {
 }
 
 const broadcastTx = (txRaw) => {
-  return axios.post(`https://test-insight.bitpay.com/api/tx/send`, {
+  return axios.post(`https://test-insight.swap.online/insight-api/tx/send`, {
     rawtx: txRaw,
   })
 }
 
 const fetchUnspents = async (address) => {
-  return axios.get(`https://test-insight.bitpay.com/api/addr/${address}/utxo`)
+  return axios.get(`https://test-insight.swap.online/insight-api/addr/${address}/utxo`)
     .then(result => {
       return result.data
     })
