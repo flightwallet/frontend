@@ -11,9 +11,9 @@
   <body>
     <section class="wrapper">
         <div class="section">
-            <h1 class="header">Flight.wallet kassa</h1>
+            <h1 class="header">Coffee Shop</h1>
             <div class="block" id="step-1">
-                <b>Enter billing information</b>
+                <b>Choose the drink</b>
 
                 <div class="buttonRow">
                     <button
@@ -21,18 +21,18 @@
                         id="btcButton"
                         onclick="setSelectCurrency('BTC')"
                     >
-                        COFFEE 0.0001 BTC
+                        Americano 0.0001 BTC
                     </button>
                     <button
                         class="selectBtn"
                         id="ethButton"
                         onclick="setSelectCurrency('ETH')"
                     >
-                        CHAI 0.0002 BTC
+                        Latte 0.0002 BTC
                     </button>
                 </div>
 
-                <label class="field">Please enter address</label>
+                <label class="field">Recipient address</label>
                 <input type="text" id="title" title="number" class="input" placeholder="address">
                 <button class="generate_btn" id="generateBtn" disabled>Generate invoice</button>
             </div>
@@ -51,7 +51,7 @@
                 <b>See QR with sign transaction</b>
                 <video id="qrScanner1" muted autoplay playsinline width="100%" height="250px"></video>
                 <a href="" target="_blank" id="txHex"></a>
-                <button onclick="window.location.reload()" class="confirmBtn" id="reloadBtn" >Again</button>
+                <button onclick="window.location.reload()" class="confirmBtn" id="reloadBtn">One more invoice</button>
             </div>
 
         </div>
