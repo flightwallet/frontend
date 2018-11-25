@@ -28,6 +28,8 @@ const generate = async () => {
   bitcoin.address.toOutputScript(input.value, bitcoin.networks.testnet)
   step2.style.display = 'flex'
 
+  window.localStorage.setItem('coffee', JSON.stringify(input.value))
+
   const scanner = await init('qrScanner')
   let confirm = false
 
@@ -45,9 +47,11 @@ const generate = async () => {
 
     step3.style.display = 'flex'
 
+    const amount = selectCurrency === 'ETH' ? 0.0001 : 0.0002
+
     const id = setInterval(async () => {
       if (confirm) {
-        const creating = await send(address, number.value)
+        const creating = await send(address, amount)
 
         if (creating) {
           step4.style.display = 'flex'
@@ -114,6 +118,8 @@ const createQrSignTx = async (txRaw) => {
     if (result) {
       txHex.innerHTML = result.data.txid.slice(1, 18)
       txHex.href = 'https://live.blockcypher.com/btc-testnet/tx/' + result.data.txid
+
+      alert('SUCCESS')
 
       reloadBtn.style.display = 'block'
       scanner.stop()
