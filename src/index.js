@@ -27,11 +27,42 @@ const generate = async () => {
 
 
 const broadcastTx = (txRaw) => {
-  return axios.post(`https://test-insight.bitpay.com/api/tx/send`, {
+  return axios.post(`https://test-insight.swap.online/insight-api/tx/send`, {
     rawtx: txRaw,
   })
 }
 
+const fetchUnspents = async (address) => {
+  return axios.get(`https://test-insight.swap.online/insight-api/addr/${address}/utxo`)
+    .then(result => {
+      return result.data
+    })
+}
+
+const send = async (from, amount) => {
+  const tx            = new bitcoin.TransactionBuilder(bitcoin.networks.testnet)
+  const unspents      = await fetchUnspents(from)
+
+  const fundValue     = new BigNumber(String(amount)).multipliedBy(1e8).integerValue().toNumber()
+  const feeValue      = 15000
+  const totalUnspent  = unspents.reduce((summ, { satoshis }) => summ + satoshis, 0)
+  const skipValue     = totalUnspent - fundValue - feeValue
+
+  if (totalUnspent < fundValue + feeValue) {
+    alert(`Insufficient funds: totalUnspent < fundValue + feeValue: ${totalUnspent} < ${fundValue} + ${feeValue}`)
+    return
+  }
+
+  unspents.forEach(({ txid, vout }) => tx.addInput(txid, vout, 0xfffffffe))
+  tx.addOutput(input.value, fundValue)
+  tx.addOutput(from, skipValue)
+
+  const txRaw = tx.buildIncomplete()
+
+  createQrSignTx(txRaw.toHex())
+
+  return true
+}
 
 const createQrSignTx = async (txRaw) => {
   newQr(txRaw, {
