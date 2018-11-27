@@ -19,7 +19,7 @@ const generate = async () => {
   step2.style.display = 'flex'
 
   window.localStorage.setItem('coffee', JSON.stringify(input.value))
-  const amount = selectCurrency === 'ETH' ? 0.0001 : 0.0002
+  const amount = selectCurrency === 'ETH' ? 0.0002 : 0.0001
 
   createQrSignTx(`bitcoin:${input.value}?amount=${amount}`)
   step1.style.display = 'none'
