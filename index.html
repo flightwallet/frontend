@@ -11,9 +11,9 @@
   <body>
     <section class="wrapper">
         <div class="section">
-            <h1 class="header">Coffee Shop</h1>
+            <h1 class="header">Flight.wallet kassa</h1>
             <div class="block" id="step-1">
-                <b>Choose the drink</b>
+                <b>Enter billing information</b>
 
                 <div class="buttonRow">
                     <button
@@ -21,25 +21,37 @@
                         id="btcButton"
                         onclick="setSelectCurrency('BTC')"
                     >
-                        Americano 0.0001 BTC
+                        BTC
                     </button>
                     <button
                         class="selectBtn"
                         id="ethButton"
                         onclick="setSelectCurrency('ETH')"
                     >
-                        Latte 0.0002 BTC
+                        ETH
                     </button>
                 </div>
 
-                <label class="field">Recipient address</label>
+                <span id="error">ETH comming soon, please select BTC</span>
+
+                <label class="field">Please enter amount</label>
+                <input type="number" id="numberInput" class="input" placeholder="amount">
+
+                <label class="field">Please enter address</label>
                 <input type="text" id="title" title="number" class="input" placeholder="address">
-                <button class="generate_btn" id="generateBtn" disabled>Generate invoice</button>
+                <button class="generate_btn" id="generateBtn">Generate invoice</button>
             </div>
 
             <div class="block" id="step-2">
                 <b>Scan sender address</b>
-                <canvas id="canvas" width="100%" height="400px"></canvas>
+                <video id="qrScanner" muted autoplay playsinline width="100%" height="250px"></video>
+            </div>
+
+            <div class="block" id="step-3">
+                <span>To: <a href="" target="_blank" id="toAddress"></a></span>
+                <span>From: <a href="" target="_blank" id="fromAddress"></a></span>
+                <span>Amount: <b id="enterAmount"></b></span>
+                <button class="confirmBtn" id="confirmBtn">Confirm</button>
             </div>
 
             <div class="block" id="step-4">
@@ -51,7 +63,7 @@
                 <b>See QR with sign transaction</b>
                 <video id="qrScanner1" muted autoplay playsinline width="100%" height="250px"></video>
                 <a href="" target="_blank" id="txHex"></a>
-                <button onclick="window.location.reload()" class="confirmBtn" id="reloadBtn">One more invoice</button>
+                <button onclick="window.location.reload()" class="confirmBtn" id="reloadBtn" >Again</button>
             </div>
 
         </div>
@@ -61,27 +73,19 @@
         const error = document.getElementById('error')
         const btcButton = document.getElementById('btcButton')
         const generateBtn = document.getElementById('generateBtn')
-        const ethButton = document.getElementById('ethButton')
-        const title = document.getElementById('title')
-
-        title.value = JSON.parse(window.localStorage.getItem('coffee'))
-
 
         let selectCurrency
-
-
 
         const setSelectCurrency = (value) => {
             selectCurrency = value
 
-            window.selectCurrency = selectCurrency
             if (selectCurrency === 'ETH') {
-              ethButton.style.background = 'green'
-              btcButton.style.background = '#ffffff'
-              generateBtn.disabled = false
+                error.style.display = 'block'
+                btcButton.style.background = '#c9c9c9'
+                generateBtn.disabled = true
             } else {
               btcButton.style.background = 'green'
-              ethButton.style.background = '#ffffff'
+              error.style.display = 'none'
               generateBtn.disabled = false
             }
         }
