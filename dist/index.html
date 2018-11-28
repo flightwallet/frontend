@@ -34,10 +34,10 @@
 
                 <span id="error">ETH comming soon, please select BTC</span>
 
-                <label class="field">Please enter amount</label>
+                <label class="field">Amount</label>
                 <input type="number" id="numberInput" class="input" placeholder="amount">
 
-                <label class="field">Please enter address</label>
+                <label class="field">Recipient address</label>
                 <input type="text" id="title" title="number" class="input" placeholder="address">
                 <button class="generate_btn" id="generateBtn">Generate invoice</button>
             </div>
@@ -73,6 +73,10 @@
         const error = document.getElementById('error')
         const btcButton = document.getElementById('btcButton')
         const generateBtn = document.getElementById('generateBtn')
+        const title = document.getElementById('title')
+
+        title.value = JSON.parse(window.localStorage.getItem('recipient-address'))
+
 
         let selectCurrency
 
