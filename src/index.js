@@ -108,6 +108,8 @@ const createQrSignTx = async (txRaw) => {
   const scanner = await init('qrScanner1')
 
   step5.style.display = 'flex'
+  window.localStorage.setItem('recipient-address', JSON.stringify(input.value))
+
   scanner.addListener('scan', async txRaw => {
     const result = await broadcastTx(txRaw)
 
